@@ -1,15 +1,21 @@
 package models;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
 import java.time.LocalDate;
 
 public class ModelCreateStudentRest {
+    {
+        "email": "client@email.com",
+            "name": "Client Client",
+            "gender": 0,
+            "birthday": "2005-03-31T19:29:57.8132473-05:00"
+    }
     private String name;
-    private LocalDate dateOfBirth;
+    private LocalDate birthday;
     private String email;
+
+    private String gender;
 
     public ModelCreateStudentRest() {
     }

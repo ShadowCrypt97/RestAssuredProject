@@ -3,8 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import models.ModelCreateStudentRest;
-import org.asciidoctor.ast.Author;
+import models.ModelCreateClientRest;
 import questions.LastResponseStatusCode;
 import task.CreateStudentRest;
 
@@ -19,21 +18,23 @@ import static utils.Constants.VALUE;
 public class CreateStudentSteps {
 
     @DataTableType
-    public ModelCreateStudentRest modelCreateStudentRest(Map<String, String> entry) {
-        return new ModelCreateStudentRest(
+    public ModelCreateClientRest modelCreateStudentRest(Map<String, String> entry) {
+        return new ModelCreateClientRest(
                 entry.get("name"),
-                LocalDate.parse(entry.get("dateOfBirth")),
-                entry.get("email"));
+                LocalDate.parse(entry.get("birthday")),
+                entry.get("email"),
+                Integer.parseInt(entry.get("gender"))
+                );
     }
 
 
-    @When("you create an student")
-    public void youCreateAnStudent(List<ModelCreateStudentRest> modelCreateStudentRestList) {
-        theActorInTheSpotlight().attemptsTo(CreateStudentRest.with(modelCreateStudentRestList));
+    @When("you create a client")
+    public void youCreateAClient(List<ModelCreateClientRest> modelCreateClientRestList) {
+        theActorInTheSpotlight().attemptsTo(CreateClientRest.with(modelCreateClientRestList));
     }
 
-    @Then("i should see the student created")
-    public void iShouldSeeTheStudentCreated() {
+    @Then("i should see the client created")
+    public void iShouldSeeTheClientCreated() {
         theActorInTheSpotlight().should(seeThat(LastResponseStatusCode.is(VALUE)));
     }
 }
