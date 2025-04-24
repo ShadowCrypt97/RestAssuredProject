@@ -4,26 +4,20 @@ import lombok.SneakyThrows;
 
 import java.time.LocalDate;
 
-public class ModelCreateStudentRest {
-    {
-        "email": "client@email.com",
-            "name": "Client Client",
-            "gender": 0,
-            "birthday": "2005-03-31T19:29:57.8132473-05:00"
-    }
+public class ModelCreateClientRest {
     private String name;
     private LocalDate birthday;
     private String email;
+    private Integer gender;
 
-    private String gender;
-
-    public ModelCreateStudentRest() {
+    public ModelCreateClientRest() {
     }
 
-    public ModelCreateStudentRest(String name, LocalDate dateOfBirth, String email) {
+    public ModelCreateClientRest(String name, LocalDate dateOfBirth, String email, Integer gender) {
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
+        this.birthday = dateOfBirth;
         this.email = email;
+        this.gender = gender;
     }
 
     public String getName() {
@@ -35,11 +29,11 @@ public class ModelCreateStudentRest {
     }
 
     public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+        return birthday;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDateOfBirth(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getEmail() {
@@ -50,13 +44,20 @@ public class ModelCreateStudentRest {
         this.email = email;
     }
 
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender){ this.gender = gender;}
+
     @SneakyThrows
     @Override
     public String toString() {
         return "{" +
                 "\"name\":\"" + name + '\"' +
-                ", \"dateOfBirth\":"+ '\"'  + dateOfBirth+ '\"' +
+                ", \"birthday\":"+ '\"'  + birthday+ '\"' +
                 ", \"email\":\"" + email + '\"' +
+                ", \"gender\":" + gender  +
                 '}';
     }
 

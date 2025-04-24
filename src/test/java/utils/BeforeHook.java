@@ -12,6 +12,6 @@ public class BeforeHook {
     @Before
     public void prepareStage() {
         OnStage.setTheStage(new OnlineCast());
-        theActorCalled("brandon").whoCan(CallAnApi.at(BASE_URL.toString()));
+        theActorCalled("Alan").whoCan(CallAnApi.at(BASE_URL.toString()));
     }
 }

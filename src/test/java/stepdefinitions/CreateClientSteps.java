@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import models.ModelCreateClientRest;
 import questions.LastResponseStatusCode;
-import task.CreateStudentRest;
+import task.CreateClientRest;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,7 +15,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static utils.Constants.VALUE;
 
-public class CreateStudentSteps {
+public class CreateClientSteps {
 
     @DataTableType
     public ModelCreateClientRest modelCreateStudentRest(Map<String, String> entry) {

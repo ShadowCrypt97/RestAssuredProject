@@ -8,20 +8,21 @@ import net.serenitybdd.screenplay.Tasks;
 
 import java.util.List;
 
-public class CreateStudentRest implements Task {
+public class CreateClientRest implements Task {
 
     private  List<ModelCreateClientRest> modelCreateClientRestList;
 
-    public CreateStudentRest(List<ModelCreateClientRest> modelCreateClientRestList) {
+    public CreateClientRest(List<ModelCreateClientRest> modelCreateClientRestList) {
         this.modelCreateClientRestList = modelCreateClientRestList;
     }
 
-    public static CreateStudentRest with(List<ModelCreateClientRest> modelCreateClientRestList) {
-        return Tasks.instrumented(CreateStudentRest.class, modelCreateClientRestList);
+    public static CreateClientRest with(List<ModelCreateClientRest> modelCreateClientRestList) {
+        return Tasks.instrumented(CreateClientRest.class, modelCreateClientRestList);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        System.out.println(modelCreateClientRestList.get(0).toString());
         actor.attemptsTo(ConsumeService.withPost(modelCreateClientRestList.get(0).toString()));
     }
 }

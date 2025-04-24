@@ -1,38 +1,42 @@
-repositories {
-    mavenCentral()
-}
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.1")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.0.5")
     }
 }
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
+
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
 apply plugin: 'net.serenity-bdd.aggregator'
+
+repositories {
+    mavenCentral()
+}
+
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
 dependencies {
-    testImplementation('net.serenity-bdd:serenity-core:2.3.4')
-    testImplementation ('net.serenity-bdd:serenity-junit:2.3.4')
-    testImplementation('junit:junit:4.12')
-    testImplementation('org.assertj:assertj-core:1.7.0 ')
-    testImplementation('org.slf4j:slf4j-simple:1.7.7')
-    implementation ('net.serenity-bdd:serenity-core:2.3.4')
-    implementation ('net.serenity-bdd:serenity-junit:2.3.4')
+    implementation 'net.serenity-bdd:serenity-core:3.0.5'
+    implementation 'net.serenity-bdd:serenity-junit:3.0.5'
     implementation 'net.serenity-bdd:serenity-cucumber:3.0.5'
-    implementation ('net.serenity-bdd:serenity-screenplay:2.3.4')
-    implementation ('net.serenity-bdd:serenity-screenplay-rest:2.3.4')
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.0.5'
+    implementation 'net.serenity-bdd:serenity-screenplay-rest:3.0.5'
 
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.assertj:assertj-core:3.22.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.36'
 
-    testCompileOnly 'org.projectlombok:lombok:1.18.22'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 gradle.startParameter.continueOnFailure = true
